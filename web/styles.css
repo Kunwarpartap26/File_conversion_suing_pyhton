@@ -1,0 +1,60 @@
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #f6f7fb;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.wrap {
+  width: min(720px, 92vw);
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 24px 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  animation: fade .6s ease both;
+}
+
+h1 { margin: 0 0 16px; }
+
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#status {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #333;
+}
+
+button {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #7c3aed;
+  color: #fff;
+  font-weight: 600;
+}
+
+button.ghost {
+  background: transparent;
+  color: #7c3aed;
+  border: 2px solid #7c3aed;
+  margin-top: 8px;
+}
+
+select, input[type="file"] {
+  padding: 8px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
