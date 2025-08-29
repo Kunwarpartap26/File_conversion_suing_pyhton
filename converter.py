@@ -7,17 +7,17 @@ import pdfplumber
 from docx import Document
 from pdf2docx import Converter
 
-# Always save in "output" folder
-OUTPUT_DIR = os.path.join(os.getcwd(), "output")
+
+OUTPUT_DIR = os.path.join(os.getcwd(), "output")              # Always save in "output" folder
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def convert(input_path, output_format):
     filename, ext = os.path.splitext(input_path)
     ext = ext.lower()
-    base_name = os.path.basename(filename)  # keep only filename without path
+    base_name = os.path.basename(filename)                   # keep only filename without path
 
-    # -------------------- Documents --------------------
-    if ext == ".pdf" and output_format == "docx":
+   
+    if ext == ".pdf" and output_format == "docx":                  # /-------------------- Documents --------------------/
         output_path = os.path.join(OUTPUT_DIR, base_name + ".docx")
         try:
             cv = Converter(input_path)
@@ -52,15 +52,15 @@ def convert(input_path, output_format):
         df.to_excel(output_path, index=False)
         return output_path
 
-    # -------------------- Images --------------------
-    if ext in [".png", ".jpg", ".jpeg", ".bmp", ".gif"]:
+  
+    if ext in [".png", ".jpg", ".jpeg", ".bmp", ".gif"]:              # -------------------- Images --------------------
         img = Image.open(input_path)
         output_path = os.path.join(OUTPUT_DIR, base_name + "." + output_format)
         img.save(output_path)
         return output_path
 
-    # -------------------- Archives --------------------
-    if ext == ".zip" and output_format == "extract":
+ 
+    if ext == ".zip" and output_format == "extract":                   # -------------------- Archives --------------------
         output_dir = os.path.join(OUTPUT_DIR, base_name + "_extracted")
         with zipfile.ZipFile(input_path, "r") as zip_ref:
             zip_ref.extractall(output_dir)
@@ -77,5 +77,6 @@ def convert(input_path, output_format):
         with py7zr.SevenZipFile(input_path, mode="r") as z:
             z.extractall(path=output_dir)
         return output_dir
+
 
     raise ValueError("Unsupported conversion: {} → {}".format(ext, output_format))
