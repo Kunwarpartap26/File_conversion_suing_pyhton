@@ -1,60 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: #f6f7fb;
-  margin: 0;
-  display: grid;
-  place-items: center;
-  height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9a8b 0%, #ff6a88 100%);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
-.wrap {
-  width: min(720px, 92vw);
-  background: #fff;
-  border-radius: 16px;
-  padding: 24px 24px 28px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
-  animation: fade .6s ease both;
+.screen {
+    width: 100%;
+    transition: opacity 0.5s ease-in-out;
 }
 
-h1 { margin: 0 0 16px; }
+.hidden {
+    display: none;
+    opacity: 0;
+}
 
-.row {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: min(720px, 92vw);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.header h1 {
+    color: #fff;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.header p {
+    color: #eee;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.converter-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.input-section .file-label {
+    background: #ff6a88;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: inline-block;
+}
+
+.input-section .file-label:hover {
+    background: #ff4d72;
+}
+
+#fileInput {
+    display: none;
+}
+
+#formatSelect {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    font-size: 1em;
+    cursor: pointer;
+    outline: none;
+}
+
+#convertBtn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #ff9a8b;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#convertBtn:hover {
+    background: #ff7a6e;
+    transform: translateY(-2px);
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid #ff6a88;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin: 0 auto 20px;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 #status {
-  margin-top: 14px;
-  font-size: 14px;
-  color: #333;
+    color: #fff;
+    font-size: 1em;
 }
 
-button {
-  padding: 10px 16px;
-  border: 0;
-  border-radius: 10px;
-  cursor: pointer;
-  background: #7c3aed;
-  color: #fff;
-  font-weight: 600;
+#openBtn {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-button.ghost {
-  background: transparent;
-  color: #7c3aed;
-  border: 2px solid #7c3aed;
-  margin-top: 8px;
+#openBtn:hover {
+    background: #fff;
+    color: #ff6a88;
 }
 
-select, input[type="file"] {
-  padding: 8px 10px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-}
-
-@keyframes fade {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
