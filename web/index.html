@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title> File Converter</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <title>Modern File Converter</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="wrap">
-    <h1> File Converter</h1>
-
-    <div class="row">
-      <input type="file" id="fileInput" />
-      <select id="formatSelect">
-        <option value="docx">PDF → DOCX / TXT → DOCX</option>
-        <option value="pdf">DOCX → PDF</option>
-        <option value="md">TXT → MD</option>
-        <option value="xlsx">CSV → XLSX</option>
-        <option value="csv">XLSX → CSV</option>
-        <option value="jpg">Image → JPG</option>
-        <option value="png">Image → PNG</option>
-        <option value="bmp">Image → BMP</option>
-        <option value="gif">Image → GIF</option>
-        <option value="extract">Archive Extract (ZIP/RAR/7z)</option>
-      </select>
-      <button id="convertBtn">Convert</button>
+    <div class="container">
+        <div class="header">
+            <h1>Modern File Converter</h1>
+            <p>Your one-stop solution for file conversions.</p>
+        </div>
+        <div class="converter-wrapper">
+            <div class="input-section">
+                <input type="file" id="fileInput" />
+                <label for="fileInput" class="file-label">Choose a file</label>
+            </div>
+            <div class="options-section">
+                <select id="formatSelect">
+                    <option value="docx">PDF → DOCX / TXT → DOCX</option>
+                    <option value="pdf">DOCX → PDF</option>
+                    <option value="md">TXT → MD</option>
+                    <option value="xlsx">CSV → XLSX</option>
+                    <option value="csv">XLSX → CSV</option>
+                    <option value="jpg">Image → JPG</option>
+                    <option value="png">Image → PNG</option>
+                    <option value="bmp">Image → BMP</option>
+                    <option value="gif">Image → GIF</option>
+                    <option value="extract">Archive Extract (ZIP/RAR/7z)</option>
+                </select>
+            </div>
+            <div class="action-section">
+                <button id="convertBtn">Convert</button>
+            </div>
+        </div>
+        <div class="status-section">
+            <p id="status"></p>
+            <button id="openBtn" class="ghost">Open Output Folder</button>
+        </div>
     </div>
-
-    <p id="status"></p>
-    <button id="openBtn" class="ghost">Open output folder</button>
-  </div>
-
-  <script src="/eel.js"></script>
-  <script src="script.js"></script>
+    <script src="/eel.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
