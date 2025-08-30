@@ -19,7 +19,8 @@ It provides a simple interface to upload, convert, and download files seamlessly
 ```
 main.py        # Backend entry point  
 converters.py  # Handles conversion logic  
-web/           # Frontend (HTML, CSS, JS, assets)  
+web/          # Frontend (HTML, CSS, JS, assets)
+output        # Where the selected file will be saved 
 ```
 
 ##  Getting Started  
